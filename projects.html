@@ -1,0 +1,652 @@
+<!-- projects.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects-Diyorbek.M </title>
+<link rel="shortcut icon" href="img.png" type="image/x-icon">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',sans-serif;}
+  body{background:#0b0d12;color:white;overflow-x:hidden;}
+  body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background: linear-gradient(120deg,#0d0d0d,#151986,#632ba2,#3f2184);background-size:400% 400%;animation:bgGradient 20s ease infinite;z-index:-1;}
+  @keyframes bgGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+  nav{position:fixed;top:0;width:100%;display:flex;justify-content:center;padding:20px;gap:30px;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);z-index:100;}
+  nav a{color:white;text-decoration:none;font-weight:500;transition:0.3s;}
+  nav a:hover{color:#00e5ff;}
+
+  section{padding:100px 20px;max-width:1000px;margin:auto;}
+  section h2{text-align:center;font-size:2rem;margin-bottom:40px;position:relative;}
+  section h2::after{content:'';width:60px;height:4px;background:#00e5ff;position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);border-radius:2px;}
+
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+  .project{background:#1b1b1b;border-radius:12px;padding:15px;transition:0.5s;transform-style:preserve-3d;cursor:pointer;}
+  .project:hover{transform: rotateY(10deg) scale(1.05);background:linear-gradient(135deg,#780478,#cbda72);box-shadow:0 10px 25px rgba(51, 27, 81, 0.5);}
+  .project img{width:100%;border-radius:10px;}
+  .project h3{text-align:center;margin-top:10px;font-size:1.2rem;}
+
+  .type--A {
+  --line_color: #555555;
+  --back_color: #ffecf6;
+}
+.type--B {
+  --line_color: #1b1919;
+  --back_color: #e9ecff;
+}
+.type--C {
+  --line_color: #00135c;
+  --back_color: #defffa;
+}
+.button {
+  position: relative;
+  z-index: 0;
+  width: 240px;
+  height: 56px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--line_color);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+.button__text {
+    color: #6e9c0c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line_color);
+  transition: all 0.5s ease;
+}
+.button::before {
+  top: 0;
+  left: 54px;
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button::after {
+  top: 0;
+  right: 54px;
+  width: 8px;
+}
+.button__text::before {
+  bottom: 0;
+  right: 54px;
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button__text::after {
+  bottom: 0;
+  left: 54px;
+  width: 8px;
+}
+.button__line {
+  position: absolute;
+  top: 0;
+  width: 56px;
+  height: 100%;
+  overflow: hidden;
+}
+.button__line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 300px;
+  border: solid 3px var(--line_color);
+}
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before {
+  left: 0;
+}
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before {
+  right: 0;
+}
+.button:hover {
+  letter-spacing: 6px;
+}
+.button:hover::before,
+.button:hover .button__text::before {
+  width: 8px;
+}
+.button:hover::after,
+.button:hover .button__text::after {
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button__drow1,
+.button__drow2 {
+  position: absolute;
+  z-index: -1;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+}
+.button__drow1 {
+  top: -16px;
+  left: 40px;
+  width: 32px;
+  height: 0;
+  transform: rotate(30deg);
+}
+.button__drow2 {
+  top: 44px;
+  left: 77px;
+  width: 32px;
+  height: 0;
+  transform: rotate(-127deg);
+}
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after {
+  content: "";
+  position: absolute;
+}
+.button__drow1::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-60deg);
+}
+.button__drow1::after {
+  top: -10px;
+  left: 45px;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(69deg);
+}
+.button__drow2::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-146deg);
+}
+.button__drow2::after {
+  bottom: 26px;
+  left: -40px;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-262deg);
+}
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after {
+  background: var(--back_color);
+}
+.button:hover .button__drow1 {
+  animation: drow1 ease-in 0.06s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow1::before {
+  animation: drow2 linear 0.08s 0.06s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow1::after {
+  animation: drow3 linear 0.03s 0.14s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow2 {
+  animation: drow4 linear 0.06s 0.2s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow2::before {
+  animation: drow3 linear 0.03s 0.26s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow2::after {
+  animation: drow5 linear 0.06s 0.32s;
+  animation-fill-mode: forwards;
+}
+@keyframes drow1 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
+}
+@keyframes drow2 {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  11% {
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+  }
+}
+@keyframes drow3 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80px;
+  }
+}
+@keyframes drow4 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 120px;
+  }
+}
+@keyframes drow5 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 120px;
+  }
+}
+
+.container {
+  width: 10;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.button:not(:last-child) {
+  margin-bottom: 64px;
+  
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+.cards .red {
+  background-color: #532a91;
+ 
+}
+
+.cards .blue {
+  background-color: #032660;
+}
+
+.cards .green {
+  background-color: #89c0da;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms transform, 400ms box-shadow, 400ms background-color;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+}
+
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cards .card p.second-text {
+  font-size: 0.7em;
+}
+
+.cards .card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #333;
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.diyorbek{
+  text-decoration: none;
+}
+.diyorbek2{
+  text-decoration: none;
+}
+.diyorbek3{
+  text-decoration: none;
+}
+.diyorbek1{
+  margin-left: 500px;
+}
+.diyor{
+  margin-right: 500px;
+}
+.mortonov{
+  margin-left: 100px;
+}
+button {
+                position: relative;
+                width: 11em;
+                height: 4em;
+                outline: none;
+                transition: 0.1s;
+                background-color: transparent;
+                border: none;
+                font-size: 13px;
+                font-weight: bold;
+                color: #ddebf0;
+                gap: 15px;
+            }
+
+            #clip {
+                --color: #2761c3;
+                position: absolute;
+                top: 0;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                border: 5px double var(--color);
+                box-shadow: inset 0px 0px 15px #8d8f91;
+                 -webkit-clip-path: polygon(
+                    30% 0%,
+                    70% 0%,
+                    100% 30%,
+                    100% 70%,
+                    70% 100%,
+                    30% 100%,
+                    0% 70%,
+                    0% 30%
+                );
+            }
+
+            .arrow {
+                position: absolute;
+                transition: 0.2s;
+                background-color: #27296b;
+                top: 35%;
+                width: 11%;
+                height: 30%;
+                gap: 40px;
+            }
+
+            #leftArrow {
+                left: -13.5%;
+                -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+            }
+
+            #rightArrow {
+                -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+                left: 102%;
+            }
+
+            button:hover #rightArrow {
+                background-color: #321461;
+                left: -15%;
+                animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+            }
+
+            button:hover #leftArrow {
+                background-color: #9949ef;
+                left: 103%;
+                animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+            }
+
+            .corner {
+                position: absolute;
+                width: 4em;
+                height: 4em;
+                background-color: #2f206c;
+                box-shadow: inset 1px 1px 8px #5f45c4;
+                transform: scale(1) rotate(45deg);
+                transition: 0.2s;
+                gap: 40px;
+            }
+
+            #rightTop {
+                top: -1.98em;
+                left: 91%;
+            }
+
+            #leftTop {
+                top: -1.96em;
+                left: -3em;
+            }
+
+            #leftBottom {
+                top: 2.1em;
+                left: -2.15em;
+            }
+
+            #rightBottom {
+                top: 45%;
+                left: 88%;
+            }
+
+            button:hover #leftTop {
+                animation: 0.1s ease-in-out 0.05s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #rightTop {
+                animation: 0.1s ease-in-out 0.15s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #rightBottom {
+                animation: 0.1s ease-in-out 0.25s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #leftBottom {
+                animation: 0.1s ease-in-out 0.35s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover .corner {
+                transform: scale(1.25) rotate(45deg);
+            }
+
+            button:hover #clip {
+                animation: 0.2s ease-in-out 0.55s both greenLight8;
+                --color: #3e2076;
+            }
+             @keyframes changeColor8 {
+                from {
+                    background-color: #412f7e;
+                }
+
+                to {
+                    background-color: #32225d;
+                }
+            }
+
+            @keyframes lightEffect8 {
+                from {
+                    box-shadow: 1px 1px 5px #592889;
+                }
+
+                to {
+                    box-shadow: 0 0 2px #583497;
+                }
+            }
+
+            @keyframes greenLight8 {
+                from {
+                }
+
+                to {
+                    box-shadow: inset 0px 0px 32px #a052e4;
+                }
+            }
+
+            @keyframes leftArrow8 {
+                from {
+                    transform: translate(0px);
+                }
+
+                to {
+                    transform: translateX(10px);
+                }
+            }
+  @keyframes rightArrow8 {
+                from {
+                    transform: translate(0px);
+                }
+
+                to {
+                    transform: translateX(-10px);
+                }
+                }
+
+       * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Telefon (kichik ekranlar) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+</style>
+</head>
+<body>
+<nav>
+   <a href="index.html">
+                <button onclick="speak('Home')">
+                    Home
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="contact.html">
+                <button onclick="speak('Contact')">
+                    Contact
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="projects.html">
+                <button onclick="speak('Projects')">
+                    Projects
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="about.html">
+                <button onclick="speak('About')">
+                    About
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br>
+            <br>
+            
+</nav>
+<script>
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+<section class="diyorbek1">
+  <h2 class="diyor">Projects</h2>
+  <div class="mortonov">
+    <a class="diyorbek" href="trafalgar.html">
+    <div class="cards">
+    <div class="card red">
+        <p class="tip">Trafalgar</p>
+        <p class="second-text">Figma</p>
+  </div>
+  </a>
+    <div class="mortonov2">
+      <a class="diyorbek2" href="rasm.html">
+      <div class="card blue">
+        <p class="tip">One Task</p>
+        <p class="second-text">FIGMA</p>
+    </div>
+    </a>
+    </div>
+    <a class="diyorbek3" href="coffe.html">
+      <div class="card green">
+        <p class="tip">Coffe</p>
+        <p class="second-text">FIGMA</p>
+    </div>
+    </a>
+</div>
+ </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About-Diyorbek.M</title>
+        <link rel="shortcut icon" href="img.png" type="image/x-icon">   
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Helvetica Neue', sans-serif;
+            }
+            body {
+                background: #f8fafd;
+                color: rgb(244, 243, 248);
+                overflow-x: hidden;
+            }
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    120deg,
+                    #dee0e5,
+                    #583e95,
+                    #3ca79b,
+                    #160585
+                );
+                background-size: 400% 400%;
+                animation: bgGradient 20s ease infinite;
+                z-index: -1;
+            }
+            @keyframes bgGradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+                gap: 30px;
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
+                z-index: 100;
+            }
+            nav a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 0.3s;
+            }
+            nav a:hover {
+                color: #004cff;
+            }
+
+            section {
+                padding: 100px 20px;
+                max-width: 800px;
+                margin: auto;
+            }
+            section h2 {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 40px;
+                position: relative;
+            }
+            section h2::after {
+                content: '';
+                width: 60px;
+                height: 4px;
+                background: #00e5ff;
+                position: absolute;
+                left: 50%;
+                bottom: -10px;
+                transform: translateX(-50%);
+                border-radius: 2px;
+            }
+            p {
+                text-align: center;
+                line-height: 1.6;
+                font-size: 1.1rem;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #111;
+                margin: 0;
+            }
+
+            .container7 {
+                margin-right: 40px;
+                display: flex;
+                width: 90vw;
+            }
+
+            .panel {
+                width: 50px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 80vh;
+                border-radius: 25px;
+                color: white;
+                cursor: pointer;
+                flex: 0.3;
+                margin: 10px;
+                position: relative;
+                transition: all 0.7s ease-in-out;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .panel.active {
+                flex: 5;
+                border-radius: 25px;
+                box-shadow: 0 0 25px 3px rgba(0, 255, 255, 0.3);
+            }
+
+            .loader {
+                --main-size: 4em;
+                --text-color: #ffffff;
+                --shine-color: #ffffff40;
+                --shadow-color: #aaaaaa;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                user-select: none;
+                position: relative;
+                font-size: var(--main-size);
+                font-weight: 900;
+                text-transform: uppercase;
+                color: var(--text-color);
+                width: 7.3em;
+                height: 1em;
+                filter: drop-shadow(0 0 0.05em var(--shine-color));
+            }
+
+            .loader .text {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                position: absolute;
+            }
+
+            .loader .text:nth-child(1) {
+                clip-path: polygon(0% 0%, 11.11% 0%, 11.11% 100%, 0% 100%);
+                font-size: calc(var(--main-size) / 20);
+                margin-left: -2.1em;
+                opacity: 0.6;
+            }
+
+            .loader .text:nth-child(2) {
+                clip-path: polygon(
+                    11.11% 0%,
+                    22.22% 0%,
+                    22.22% 100%,
+                    11.11% 100%
+                );
+                font-size: calc(var(--main-size) / 16);
+                margin-left: -0.98em;
+                opacity: 0.7;
+            }
+
+            .loader .text:nth-child(3) {
+                clip-path: polygon(
+                    22.22% 0%,
+                    33.33% 0%,
+                    33.33% 100%,
+                    22.22% 100%
+                );
+                font-size: calc(var(--main-size) / 13);
+                margin-left: -0.33em;
+                opacity: 0.8;
+            }
+
+            .loader .text:nth-child(4) {
+                clip-path: polygon(
+                    33.33% 0%,
+                    44.44% 0%,
+                    44.44% 100%,
+                    33.33% 100%
+                );
+                font-size: calc(var(--main-size) / 11);
+                margin-left: -0.05em;
+                opacity: 0.9;
+            }
+
+            .loader .text:nth-child(5) {
+                clip-path: polygon(
+                    44.44% 0%,
+                    55.55% 0%,
+                    55.55% 100%,
+                    44.44% 100%
+                );
+                font-size: calc(var(--main-size) / 10);
+                margin-left: 0em;
+                opacity: 1;
+            }
+
+            .loader .text:nth-child(6) {
+                clip-path: polygon(
+                    55.55% 0%,
+                    66.66% 0%,
+                    66.66% 100%,
+                    55.55% 100%
+                );
+                font-size: calc(var(--main-size) / 11);
+                margin-left: 0.05em;
+                opacity: 0.9;
+            }
+
+            .loader .text:nth-child(7) {
+                clip-path: polygon(
+                    66.66% 0%,
+                    77.77% 0%,
+                    77.77% 100%,
+                    66.66% 100%
+                );
+                font-size: calc(var(--main-size) / 13);
+                margin-left: 0.33em;
+                opacity: 0.8;
+            }
+
+            .loader .text:nth-child(8) {
+                clip-path: polygon(
+                    77.77% 0%,
+                    88.88% 0%,
+                    88.88% 100%,
+                    77.77% 100%
+                );
+                font-size: calc(var(--main-size) / 16);
+                margin-left: 0.98em;
+                opacity: 0.7;
+            }
+
+            .loader .text:nth-child(9) {
+                clip-path: polygon(88.88% 0%, 100% 0%, 100% 100%, 88.88% 100%);
+                font-size: calc(var(--main-size) / 20);
+                margin-left: 2.1em;
+                opacity: 0.6;
+            }
+
+            .loader .text span {
+                animation: scrolling 2s cubic-bezier(0.1, 0.6, 0.9, 0.4)
+                        infinite,
+                    shadow 2s cubic-bezier(0.1, 0.6, 0.9, 0.4) infinite;
+            }
+
+            .loader .text:nth-child(1) span {
+                background: linear-gradient(
+                    to right,
+                    var(--text-color) 4%,
+                    var(--shadow-color) 7%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(2) span {
+                background: linear-gradient(
+                    to right,
+                    var(--text-color) 9%,
+                    var(--shadow-color) 13%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(3) span {
+                background: linear-gradient(
+                    to right,
+                    var(--text-color) 15%,
+                    var(--shadow-color) 18%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(4) span {
+                background: linear-gradient(
+                    to right,
+                    var(--text-color) 20%,
+                    var(--shadow-color) 23%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(6) span {
+                background: linear-gradient(
+                    to right,
+                    var(--shadow-color) 29%,
+                    var(--text-color) 32%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(7) span {
+                background: linear-gradient(
+                    to right,
+                    var(--shadow-color) 34%,
+                    var(--text-color) 37%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(8) span {
+                background: linear-gradient(
+                    to right,
+                    var(--shadow-color) 39%,
+                    var(--text-color) 42%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .text:nth-child(9) span {
+                background: linear-gradient(
+                    to right,
+                    var(--shadow-color) 45%,
+                    var(--text-color) 48%
+                );
+                background-size: 200% auto;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .loader .line {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                height: 0.05em;
+                width: calc(var(--main-size) / 2);
+                margin-top: 0.9em;
+                border-radius: 0.05em;
+            }
+
+            .loader .line::before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: var(--text-color);
+                opacity: 0.3;
+            }
+
+            .loader .line::after {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: var(--text-color);
+                border-radius: 0.05em;
+                transform: translateX(-90%);
+                animation: wobble 2s cubic-bezier(0.5, 0.8, 0.5, 0.2) infinite;
+            }
+
+            @keyframes wobble {
+                0% {
+                    transform: translateX(-90%);
+                }
+                50% {
+                    transform: translateX(90%);
+                }
+                100% {
+                    transform: translateX(-90%);
+                }
+            }
+
+            @keyframes scrolling {
+                0% {
+                    transform: translateX(-100%);
+                }
+                100% {
+                    transform: translateX(100%);
+                }
+            }
+
+            @keyframes shadow {
+                0% {
+                    background-position: -98% 0;
+                }
+                100% {
+                    background-position: 102% 0;
+                }
+            }
+            button {
+                position: relative;
+                width: 11em;
+                height: 4em;
+                outline: none;
+                transition: 0.1s;
+                background-color: transparent;
+                border: none;
+                font-size: 13px;
+                font-weight: bold;
+                color: #ddebf0;
+                gap: 15px;
+            }
+
+            #clip {
+                --color: #2761c3;
+                position: absolute;
+                top: 0;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                border: 5px double var(--color);
+                box-shadow: inset 0px 0px 15px #8d8f91;
+                -webkit-clip-path: polygon(
+                    30% 0%,
+                    70% 0%,
+                    100% 30%,
+                    100% 70%,
+                    70% 100%,
+                    30% 100%,
+                    0% 70%,
+                    0% 30%
+                );
+            }
+
+            .arrow {
+                position: absolute;
+                transition: 0.2s;
+                background-color: #27296b;
+                top: 35%;
+                width: 11%;
+                height: 30%;
+                gap: 40px;
+            }
+
+            #leftArrow {
+                left: -13.5%;
+                -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+            }
+
+            #rightArrow {
+                -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+                left: 102%;
+            }
+
+            button:hover #rightArrow {
+                background-color: #321461;
+                left: -15%;
+                animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+            }
+
+            button:hover #leftArrow {
+                background-color: #9949ef;
+                left: 103%;
+                animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+            }
+
+            .corner {
+                position: absolute;
+                width: 4em;
+                height: 4em;
+                background-color: #2f206c;
+                box-shadow: inset 1px 1px 8px #5f45c4;
+                transform: scale(1) rotate(45deg);
+                transition: 0.2s;
+                gap: 40px;
+            }
+
+            #rightTop {
+                top: -1.98em;
+                left: 91%;
+            }
+
+            #leftTop {
+                top: -1.96em;
+                left: -3em;
+            }
+
+            #leftBottom {
+                top: 2.1em;
+                left: -2.15em;
+            }
+
+            #rightBottom {
+                top: 45%;
+                left: 88%;
+            }
+
+            button:hover #leftTop {
+                animation: 0.1s ease-in-out 0.05s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #rightTop {
+                animation: 0.1s ease-in-out 0.15s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #rightBottom {
+                animation: 0.1s ease-in-out 0.25s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #leftBottom {
+                animation: 0.1s ease-in-out 0.35s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover .corner {
+                transform: scale(1.25) rotate(45deg);
+            }
+
+            button:hover #clip {
+                animation: 0.2s ease-in-out 0.55s both greenLight8;
+                --color: #3e2076;
+            }
+
+            @keyframes changeColor8 {
+                from {
+                    background-color: #412f7e;
+                }
+
+                to {
+                    background-color: #32225d;
+                }
+            }
+
+            @keyframes lightEffect8 {
+                from {
+                    box-shadow: 1px 1px 5px #592889;
+                }
+
+                to {
+                    box-shadow: 0 0 2px #583497;
+                }
+            }
+
+            @keyframes greenLight8 {
+                from {
+                }
+
+                to {
+                    box-shadow: inset 0px 0px 32px #a052e4;
+                }
+            }
+
+            @keyframes leftArrow8 {
+                from {
+                    transform: translate(0px);
+                }
+
+                to {
+                    transform: translateX(10px);
+                }
+            }
+
+            @keyframes rightArrow8 {
+                from {
+                    transform: translate(0px);
+                }
+
+                to {
+                    transform: translateX(-10px);
+                }
+            }
+            .container12 {
+                margin-top: 300px;
+                right: 400px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }   
+
+            .container12 .glass {
+                position: relative;
+                width: 180px;
+                height: 200px;
+                background: linear-gradient(#fff2, transparent);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+                border-radius: 10px;
+                margin: 0 -45px;
+                backdrop-filter: blur(10px);
+                transform: rotate(calc(var(--r) * 1deg));
+            }
+
+            .container12:hover .glass {
+                transform: rotate(0deg);
+                margin: 0 10px;
+            }
+
+            .container .glass::before {
+                content: attr(data-text);
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.05);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+            }
+            .container .glass svg {
+                font-size: 2.5em;
+                fill: #fff;
+            }
+            .mot {
+                margin-bottom: 500px;
+            }
+            .ddd1 {
+                border-radius: 8px;
+            }
+            .ddd2 {
+                border-radius: 8px;
+            }
+            .ddd3 {
+                border-radius: 8px;
+            }
+
+            
+
+             
+.ddd1{
+    width: 100%;
+    height: 28vh;
+    object-fit: cover;
+    
+    border-radius: 20px;
+}
+.ddd2{
+  width: 100%;
+    height: 28vh;
+    object-fit: cover;
+    
+    border-radius: 20px;   
+}
+.ddd3{
+    width: 100%;
+    height: 28vh;
+    object-fit: cover;
+    
+    border-radius: 20px;
+}
+img {
+    width: 100%;
+    height: auto;
+   
+}
+
+/* 📱 TELEFON VERSIYA (0–480px) */
+@media (max-width: 480px) {
+
+    body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    header, nav, .navbar {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column !important;
+        gap: 12px;
+    }
+
+    .hero, .hero_section, .hero_text, .hero_img {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .hero_img img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    button, .btn, a {
+        width: 100% !important;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .card, .cards, .projects, .skills, .friends {
+        width: 100% !important;
+        display: block !important;
+        margin: 10px 0;
+    }
+
+    .video-box, video, iframe {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    footer {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 15px;
+    }
+}
+
+/* 💻 LAPTOP / DESKTOP (768px+) */
+@media (min-width: 768px) {
+
+    header, nav ul, .navbar {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+
+    .card {
+        width: 340px !important;
+    }
+
+    .hero_text {
+        text-align: left !important;
+    }
+}
+
+
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="index.html">
+                <button onclick="speak('Home')" >
+                    Home
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="skills.html">
+                <button onclick="speak('Skills')">
+                    Skills
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="projects.html">
+                <button onclick="speak('Projects')">
+                    Projects
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="contact.html">
+                <button onclick="speak('Contact')" >
+                    Contact
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+        </nav>
+        
+        <script>
+    
+    function prevMusic() {
+        index = (index - 1 + songs.length) % songs.length;
+        audio.src = songs[index];
+        audio.play();
+    }
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+        <section class="mot">
+            <div class="loader">
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="text"><span>About me</span></div>
+                <div class="line"></div>
+            </div>
+
+            <p>
+                Mening ismim Diyorbek. Men Toshkent viloyati, chorvoq qishlog'ida  
+                yashayman.Bu mening yaqin do'stlarim.Kelajakda men nufuzli universitetlarga kirmoqchiman yani Amerika, Italia, Britania, Turkiya. 
+            </p>
+        </section>
+        <div class="container12">
+            <div data-text="Github" style="--r: -15" class="glass">
+                <video class="ddd1" width="" height="" controls>
+                    <source src="vedio/uzb.mp4" type="video/mp4" />
+                    Sizning brauzeringiz video tegini qo‘llab-quvvatlamaydi.
+                </video>
+            </div>
+            <br>
+            <br>
+
+            <div data-text="Code" style="--r: 5" class="glass">
+                <video class="ddd2" width="200" height="205" controls>
+                    <source src="vedio/Interstellar.mp4" type="video/mp4" />
+                    Sizning brauzeringiz video tegini qo‘llab-quvvatlamaydi.
+                </video>
+            </div>
+            <div data-text="Earn" style="--r: 25" class="glass">
+                <video class="ddd3" width="1" height="205" controls>
+                    <source src="vedio/aaaaaa.mp4" type="video/mp4" />
+                    Sizning brauzeringiz video tegini qo‘llab-quvvatlamaydi.
+                </video>
+            </div>
+        </div>
+
+        <div class="container7">
+            <div
+                class="panel active"
+                style="background-image: url(img.png)"
+            ></div>
+            <div class="panel" style="background-image: url(3.png)"></div>
+            <div class="panel" style="background-image: url(odil.png)"></div>
+            <div class="panel" style="background-image: url(uski.png)"></div>
+            <div class="panel" style="background-image: url(otaw.png)"></div>
+            <div class="panel" style="background-image: url(uski2.png)"></div>
+            <div class="panel" style="background-image: url(image.png)"></div>
+        </div>
+
+        <script>
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach((panel) => {
+                panel.addEventListener('click', () => {
+                    removeActiveClasses();
+                    panel.classList.add('active');
+                });
+            });
+
+            function removeActiveClasses() {
+                panels.forEach((panel) => panel.classList.remove('active'));
+            }
+        </script>
+    </body>
+</html>

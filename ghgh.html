@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Ovoz</title>
+</head>
+<body>
+  <button onclick="speak('Home')">Home</button>
+  <button onclick="speak('About')">About</button>
+  <button onclick="speak('Contact')">Contact</button>
+
+  <script>
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills-Diyorbek.M</title>
+<link rel="shortcut icon" href="img.png" type="image/x-icon">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',sans-serif;}
+  body{background:#0d2664;color:rgb(180, 171, 69);overflow-x:hidden;}
+  body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background: linear-gradient(120deg,#691e89,#330582,#647834,#6b1111);background-size:400% 400%;animation:bgGradient 20s ease infinite;z-index:-1;}
+  @keyframes bgGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+  nav{position:fixed;top:0;width:100%;display:flex;justify-content:center;padding:20px;gap:30px;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);z-index:100;}
+  nav a{color:white;text-decoration:none;font-weight:500;transition:0.3s;}
+  nav a:hover{color:#00e5ff;}
+
+  section{padding:100px 20px;max-width:1000px;margin:auto;}
+  section h2{text-align:center;font-size:2rem;margin-bottom:40px;position:relative;}
+  section h2::after{content:'';width:60px;height:4px;background:#00e5ff;position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);border-radius:2px;}
+
+  /* ---- YANGI FANLAR BLOKI ---- */
+  .fanlar-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .fan {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    border-radius: 20px;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  }
+
+  .fan::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    background: conic-gradient(
+      red,
+      yellow,
+      lime,
+      cyan,
+      blue,
+      magenta,
+      red
+    );
+    animation: aylanish 3s linear infinite;
+    z-index: 0;
+  }
+
+  .fan::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    background: #111;
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  @keyframes aylanish {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .fan h3, .fan p {
+    z-index: 2;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .fan h3 {
+    font-size: 1.5rem;
+    color: #00eaff;
+  }
+
+  .bar {
+    z-index: 2;
+    width: 80%;
+    height: 18px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #00eaff44;
+  }
+
+  .daraja {
+    height: 100%;
+    background: linear-gradient(90deg, #00eaff, #ff0099);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+  }
+
+  .fan:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+  button {
+                position: relative;
+                width: 11em;
+                height: 4em;
+                outline: none;
+                transition: 0.1s;
+                background-color: transparent;
+                border: none;
+                font-size: 13px;
+                font-weight: bold;
+                color: #ddebf0;
+                gap: 15px;
+            }
+
+            #clip {
+                --color: #2761c3;
+                position: absolute;
+                top: 0;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                border: 5px double var(--color);
+                box-shadow: inset 0px 0px 15px #8d8f91;
+                -webkit-clip-path: polygon(
+                    30% 0%,
+                    70% 0%,
+                    100% 30%,
+                    100% 70%,
+                    70% 100%,
+                    30% 100%,
+                    0% 70%,
+                    0% 30%
+                );
+            }
+
+            .arrow {
+                position: absolute;
+                transition: 0.2s;
+                background-color: #27296b;
+                top: 35%;
+                width: 11%;
+                height: 30%;
+                gap: 40px;
+            }
+
+            #leftArrow {
+                left: -13.5%;
+                -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+            }
+
+            #rightArrow {
+                -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+                left: 102%;
+            }
+
+            button:hover #rightArrow {
+                background-color: #321461;
+                left: -15%;
+                animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+            }
+
+            button:hover #leftArrow {
+                background-color: #9949ef;
+                left: 103%;
+                animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+            }
+
+            .corner {
+                position: absolute;
+                width: 4em;
+                height: 4em;
+                background-color: #2f206c;
+                box-shadow: inset 1px 1px 8px #5f45c4;
+                transform: scale(1) rotate(45deg);
+                transition: 0.2s;
+                gap: 40px;
+            }
+
+            #rightTop {
+                top: -1.98em;
+                left: 91%;
+            }
+
+            #leftTop {
+                top: -1.96em;
+                left: -3em;
+            }
+
+            #leftBottom {
+                top: 2.1em;
+                left: -2.15em;
+            }
+
+            #rightBottom {
+                top: 45%;
+                left: 88%;
+            }
+
+            button:hover #leftTop {
+                animation: 0.1s ease-in-out 0.05s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #rightTop {
+                animation: 0.1s ease-in-out 0.15s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #rightBottom {
+                animation: 0.1s ease-in-out 0.25s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover #leftBottom {
+                animation: 0.1s ease-in-out 0.35s both changeColor8,
+                    0.2s linear 0.4s both lightEffect8;
+            }
+
+            button:hover .corner {
+                transform: scale(1.25) rotate(45deg);
+            }
+
+            button:hover #clip {
+                animation: 0.2s ease-in-out 0.55s both greenLight8;
+                --color: #3e2076;
+            }
+             @keyframes changeColor8 {
+                from {
+                    background-color: #412f7e;
+                }
+
+                to {
+                    background-color: #32225d;
+                }
+            }
+
+            @keyframes lightEffect8 {
+                from {
+                    box-shadow: 1px 1px 5px #592889;
+                }
+
+                to {
+                    box-shadow: 0 0 2px #583497;
+                }
+            }
+
+            @keyframes greenLight8 {
+                from {
+                }
+
+                to {
+                    box-shadow: inset 0px 0px 32px #a052e4;
+                }
+            }
+
+            @keyframes leftArrow8 {
+                from {
+                    transform: translate(0px);
+                }
+
+                to {
+                    transform: translateX(10px);
+                }
+            }
+  @keyframes rightArrow8 {
+                from {
+                    transform: translate(0px);
+                }
+
+                to {
+                    transform: translateX(-10px);
+                }
+            }
+
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Telefon (kichik ekranlar) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======== NAVBAR ======== -->
+ <nav>
+ <a href="index.html">
+                <button onclick="speak('Home')">
+                    Home
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="projects.html">
+                <button onclick="speak('Projects')">
+                    projects
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="contact.html">
+                <button onclick="speak('Contact')">
+                    Contact
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+            <br />
+            <br />
+            <a href="about.html">
+                <button onclick="speak('About')">
+                    About
+                    <div id="clip">
+                        <div id="leftTop" class="corner"></div>
+                        <div id="rightBottom" class="corner"></div>
+                        <div id="rightTop" class="corner"></div>
+                        <div id="leftBottom" class="corner"></div>
+                    </div>
+                    <span id="rightArrow" class="arrow"></span>
+                    <span id="leftArrow" class="arrow"></span>
+                </button>
+            </a>
+           
+</nav>
+<script>
+
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+<!-- ======== ASOSIY QISM ======== -->
+<section>
+  <h2>My Skills</h2>
+  <p style="text-align:center; color:#ccc;">Bu yerda men o‘rganayotgan asosiy fanlar darajasi ko‘rsatilgan </p>
+</section>
+
+<!-- ======== FANLAR BLOKI ======== -->
+<div class="fanlar-container">
+  <div class="fan">
+    <h3>Frontend</h3>
+    <p>Bilish darajasi: <span>50%</span></p>
+    <div class="bar"><div class="daraja" style="width:85%;"></div></div>
+  </div>
+
+  <div class="fan">
+    <h3>Ingliz tili</h3>
+    <p>Bilish darajasi: <span>20%</span></p>
+    <div class="bar"><div class="daraja" style="width:70%;"></div></div>
+  </div>
+
+  <div class="fan">
+    <h3>Matematika</h3>
+    <p>Bilish darajasi: <span>30%</span></p>
+    <div class="bar"><div class="daraja" style="width:90%;"></div></div>
+  </div>
+
+  <div class="fan">
+    <h3>Qolgan Fanlar</h3>
+    <p>Bilish darajasi: <span>85+%</span></p>
+    <div class="bar"><div class="daraja" style="width:65%;"></div></div>
+  </div>
+</div>
+
+</body>
+</html>

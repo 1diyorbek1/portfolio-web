@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diyorbek.M </title>
+<link rel="stylesheet" href="MAIN.CSS">
+<link rel="shortcut icon" href="img.png" type="image/x-icon">
+
+<style>
+/* Basic Reset */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Helvetica Neue',sans-serif;}
+body {overflow-x:hidden; color:rgb(64, 9, 126); position:relative;}
+
+/* Animated Linear Background */
+body::before {
+  content:'';   
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: linear-gradient(90deg, rgba(7, 129, 154, 0.2) 1px, transparent 1px),
+              linear-gradient(rgba(0,255,255,0.2) 1px, transparent 1px);
+  background-size:50px 50px;
+  animation:moveLines 10s linear infinite;
+  z-index:-1;
+}
+
+@keyframes moveLines {
+  0% {background-position:0 0, 0 0;}
+  50% {background-position:100px 100px, -100px -100px;}
+  100% {background-position:0 0, 0 0;}
+}
+
+/* Navigation */
+nav{
+  position:fixed; top:0; width:100%;
+  display:flex; justify-content:center; padding:20px; gap:30px;
+  background:rgba(0,0,0,0.3); backdrop-filter:blur(10px); z-index:100;
+}
+nav a{
+  color:rgb(83, 7, 124); text-decoration:none; font-weight:500; transition:0.3s;
+}
+nav a:hover{ color:#020c78; }
+
+/* Hero Section */
+.hero {
+  display:flex; justify-content:center; align-items:center; height:100vh;
+}
+.hero-container {
+  display:flex; align-items:center; gap:20px;
+} 
+.avatar {
+  width:150px; height:150px; border-radius:50%; border:4px solid #4035d1;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+.hero-text h1 {font-size:3rem; margin-bottom:10px;}
+.hero-text p {font-size:1.2rem; margin-bottom:20px; color:#34226e;}
+.cta {
+  padding:10px 25px; background:#00e5ff; color:#0b0d12;
+  border-radius:8px; text-decoration:none; font-weight:500; transition:0.3s;
+}
+.cta:hover {background:#dd4c08; transform:scale(1.05);}
+
+/* Sections */
+section {padding:100px 20px; max-width:1000px; margin:auto;}
+section h2 {text-align:center; font-size:2rem; margin-bottom:40px; position:relative;}
+section h2::after {content:''; width:60px; height:4px; background:#3f25a6; position:absolute; left:50%; bottom:-10px; transform:translateX(-50%); border-radius:2px;}
+
+/* Team, Testimonials, Gallery containers */
+.flex-container {display:flex; flex-wrap:wrap; gap:30px; justify-content:center;}
+.card {background:#222; padding:20px; border-radius:15px; width:220px; transition:0.3s; cursor:pointer;}
+.card:hover {transform:scale(1.05); box-shadow:0 0 25px #3b1b67;}
+.card img {width:100%; border-radius:50%; margin-bottom:10px;}
+.card h3 {margin-bottom:5px; font-size:1.2rem;}
+.card p {font-size:0.95rem; color:#c3431d;}
+
+/* Footer */
+footer {
+  padding:40px 20px; text-align:center;
+  background:rgba(0,0,0,0.3); backdrop-filter:blur(10px);
+}
+footer p {margin-bottom:10px; color:#1861c1;}
+footer a {color:#220a3a; text-decoration:none; margin:0 10px; transition:0.3s;}
+footer a:hover {text-decoration:underline;}
+/* From Uiverse.io by WAIOKYERE */
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+/* Base glassmorphism anchor */
+.icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  transition: all 0.35s ease-in-out;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.45),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+    0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* Spotify glass border */
+.icon-content[data-social="spotify"] a {
+  border: 1px solid rgba(29, 185, 84, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(29, 185, 84, 0.4),
+    0 0 10px rgba(29, 185, 84, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Pinterest glass border */
+.icon-content[data-social="pinterest"] a {
+  border: 1px solid rgba(189, 8, 28, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(189, 8, 28, 0.4),
+    0 0 10px rgba(189, 8, 28, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Dribbble glass border */
+.icon-content[data-social="dribbble"] a {
+  border: 1px solid rgba(234, 76, 137, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(234, 76, 137, 0.4),
+    0 0 10px rgba(234, 76, 137, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Telegram glass border */
+.icon-content[data-social="telegram"] a {
+  border: 1px solid rgba(0, 136, 204, 0.6);
+  box-shadow:
+    inset 0 0 6px rgba(0, 136, 204, 0.4),
+    0 0 10px rgba(0, 136, 204, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Common shine sweep effect */
+.icon-content a::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.8s ease;
+  z-index: 0;
+}
+
+.icon-content a:hover::before {
+  transform: rotate(25deg) translateX(100%);
+}
+
+.icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+}
+.icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.icon-content a:hover {
+  color: white;
+}
+.icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.icon-content a:hover .filled {
+  height: 100%;
+}
+
+/* Gradient animation keyframes */
+@keyframes premiumGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Common fix for all icons */
+button {
+  position: relative;
+  padding: 20px 35px;
+  background: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
+  border-radius: 100px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.star-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+button:hover {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 0 80px #ffffff8c;
+}
+
+button:hover .star-1 {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 20px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-2 {
+  position: absolute;
+  top: 35%;
+  left: -25%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-3 {
+  position: absolute;
+  top: 80%;
+  left: -10%;
+  width: 10px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-4 {
+  position: absolute;
+  top: -25%;
+  left: 105%;
+  width: 20px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-5 {
+  position: absolute;
+  top: 30%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-6 {
+  position: absolute;
+  top: 80%;
+  left: 105%;
+  width: 10px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.fil0 {
+  fill: #40048f;
+}
+
+.loader {
+  --fill-color: #5c3d99;
+  --shine-color: #5c3d9933;
+  transform: scale(0.5); /* You can change the size */
+  width: 100px;
+  height: auto;
+  position: relative;
+  filter: drop-shadow(0 0 10px var(--shine-color));
+}
+
+.loader #pegtopone {
+  position: absolute;
+  animation: flowe-one 1s linear infinite;
+}
+
+.loader #pegtoptwo {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0) translateY(-200px) translateX(-100px);
+  animation: flowe-two 1s linear infinite;
+  animation-delay: 0.3s;
+}
+
+.loader #pegtopthree {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0) translateY(-200px) translateX(100px);
+  animation: flowe-three 1s linear infinite;
+  animation-delay: 0.6s;
+}
+
+.loader svg g path:first-child {
+  fill: var(--fill-color);
+}
+
+@keyframes flowe-one {
+  0% {
+    transform: scale(0.5) translateY(-200px);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(0.75) translateY(-100px);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.5) translateY(50px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes flowe-two {
+  0% {
+    transform: scale(0.5) rotateZ(-10deg) translateY(-200px) translateX(-100px);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1) rotateZ(-5deg) translateY(-100px) translateX(-50px);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) rotateZ(0deg) translateY(0px) translateX(-25px);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.5) rotateZ(5deg) translateY(50px) translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotateZ(10deg) translateY(100px) translateX(25px);
+    opacity: 0;
+  }
+}
+
+@keyframes flowe-three {
+  0% {
+    transform: scale(0.5) rotateZ(10deg) translateY(-200px) translateX(100px);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1) rotateZ(5deg) translateY(-100px) translateX(50px);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) rotateZ(0deg) translateY(0px) translateX(25px);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.5) rotateZ(-5deg) translateY(50px) translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotateZ(-10deg) translateY(100px) translateX(-25px);
+    opacity: 0;
+  }
+}
+
+.type--A {
+  --line_color: #555555;
+  --back_color: #ffecf6;
+}
+.type--B {
+  --line_color: #1b1919;
+  --back_color: #e9ecff;
+}
+.type--C {
+  --line_color: #00135c;
+  --back_color: #7261a5;
+}
+.button {
+  position: relative;
+  z-index: 0;
+  width: 240px;
+  height: 56px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--line_color);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+.button__text {
+    color: #161616;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line_color);
+  transition: all 0.5s ease;
+}
+.button::before {
+  top: 0;
+  left: 54px;
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button::after {
+  top: 0;
+  right: 54px;
+  width: 8px;
+}
+.button__text::before {
+  bottom: 0;
+  right: 54px;
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button__text::after {
+  bottom: 0;
+  left: 54px;
+  width: 8px;
+}
+.button__line {
+  position: absolute;
+  top: 0;
+  width: 56px;
+  height: 100%;
+  overflow: hidden;
+}
+.button__line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 300px;
+  border: solid 3px var(--line_color);
+}
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before {
+  left: 0;
+}
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before {
+  right: 0;
+}
+.button:hover {
+  letter-spacing: 6px;
+}
+.button:hover::before,
+.button:hover .button__text::before {
+  width: 8px;
+}
+.button:hover::after,
+.button:hover .button__text::after {
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button__drow1,
+.button__drow2 {
+  position: absolute;
+  z-index: -1;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+}
+.button__drow1 {
+  top: -16px;
+  left: 40px;
+  width: 32px;
+  height: 0;
+  transform: rotate(30deg);
+}
+.button__drow2 {
+  top: 44px;
+  left: 77px;
+  width: 32px;
+  height: 0;
+  transform: rotate(-127deg);
+}
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after {
+  content: "";
+  position: absolute;
+}
+.button__drow1::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-60deg);
+}
+.button__drow1::after {
+  top: -10px;
+  left: 45px;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(69deg);
+}
+.button__drow2::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-146deg);
+}
+.button__drow2::after {
+  bottom: 26px;
+  left: -40px;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-262deg);
+}
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after {
+  background: var(--back_color);
+}
+.button:hover .button__drow1 {
+  animation: drow1 ease-in 0.06s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow1::before {
+  animation: drow2 linear 0.08s 0.06s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow1::after {
+  animation: drow3 linear 0.03s 0.14s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow2 {
+  animation: drow4 linear 0.06s 0.2s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow2::before {
+  animation: drow3 linear 0.03s 0.26s;
+  animation-fill-mode: forwards;
+}
+.button:hover .button__drow2::after {
+  animation: drow5 linear 0.06s 0.32s;
+  animation-fill-mode: forwards;
+}
+@keyframes drow1 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
+}
+@keyframes drow2 {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  11% {
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+  }
+}
+@keyframes drow3 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80px;
+  }
+}
+@keyframes drow4 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 120px;
+  }
+}
+@keyframes drow5 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 120px;
+  }
+}
+
+
+.container {
+  width: 10;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.button:not(:last-child) {
+  margin-bottom: 64px;
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+.cards .red {
+  background-color: #532a91;
+ 
+}
+
+.cards .blue {
+  background-color: #032660;
+}
+
+.cards .green {
+  background-color: #89c0da;
+}
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms transform, 400ms box-shadow, 400ms background-color;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+} 
+
+section.card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card svg {
+  fill: #000;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+}
+/* Commands to change the shadows in dark mode
+@media (prefers-color-scheme: dark) {
+  .card:hover {
+  box-shadow: 0 8px 16px #000000;
+  }
+}*/
+body {
+      background-color: #fff;
+      color: black;
+      font-family: Arial, sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    body.dark {
+      background-color: #121212;
+      color: white;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 72px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #eee;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    body.dark .toggle-btn {
+     
+      color: white;
+    }
+.voice-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.voice-btn {
+    
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.player {   
+            margin-top: 90px;
+            background: #fff;
+            color: rgb(12, 12, 12);
+            padding: 10px;
+            border-radius: 8px;
+            width: 200px;
+            font-family: sans-serif;
+           
+        }
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+     
+     
+/* 📱 TELEFON VERSIYA (0–480px) */
+@media (max-width: 480px) {
+
+    body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    header, nav, .navbar {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column !important;
+        gap: 12px;
+    }
+
+    .hero, .hero_section, .hero_text, .hero_img {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .hero_img img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    button, .btn, a {
+        width: 100% !important;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .card, .cards, .projects, .skills, .friends {
+        width: 100% !important;
+        display: block !important;
+        margin: 10px 0;
+    }
+
+    .video-box, video, iframe {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    footer {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 15px;
+    }
+}
+
+/* 💻 LAPTOP / DESKTOP (768px+) */
+@media (min-width: 768px) {
+
+    header, nav ul, .navbar {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+
+    .card {
+        width: 340px !important;
+    }
+
+    .hero_text {
+        text-align: left !important;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="toggle-btn" id="modeBtn">🌙 Tungi rejim</button>
+
+  <script>
+    const btn = document.getElementById('modeBtn');
+    const body = document.body;
+
+    // Agar foydalanuvchi oldin tanlov qilgan bo‘lsa, saqlab qo‘yamiz:
+    if (localStorage.getItem('mode') === 'dark') {
+      body.classList.add('dark');
+      btn.textContent = '☀️ Kungi rejim';
+    }
+
+    btn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        btn.textContent = '☀️ Kungi rejim';
+        localStorage.setItem('mode', 'dark');
+      } else {
+        btn.textContent = '🌙 Tungi rejim';
+        localStorage.setItem('mode', 'light');
+      }
+    });
+  </script>
+  <div class="container">
+  <a href="index.html" class="button type--C">
+    <div class="button__line"></div>
+    <div class="button__line"></div>
+    <span onclick="speak('Home')" class="button__text">Home</span>
+    <div class="button__drow1"></div>
+    <div class="button__drow2"></div>
+  </a>
+</div>
+
+ <div class="container">
+  <a href="about.html" class="button type--C">
+    <div class="button__line"></div>
+    <div class="button__line"></div>
+    <span onclick="speak('About')" class="button__text">About</span>
+    <div class="button__drow1"></div>
+    <div class="button__drow2"></div>
+  </a>
+</div>
+
+ <div class="container">
+  <a href="skills.html" class="button type--C">
+    <div class="button__line"></div>
+    <div class="button__line"></div>
+    <span onclick="speak('Skills')" class="button__text">Skills</span>
+    <div class="button__drow1"></div>
+    <div class="button__drow2"></div>
+  </a>
+</div>
+
+<div class="container">
+  <a href="projects.html" class="button type--C">
+    <div class="button__line"></div>
+    <div class="button__line"></div>
+    <span onclick="speak('Projects')" class="button__text">Projects</span>
+    <div class="button__drow1"></div>
+    <div class="button__drow2"></div>
+  </a>
+</div>
+
+
+ <div class="container">
+  <a href="contact.html" class="button type--C">
+    <div class="button__line"></div>
+    <div class="button__line"></div>
+    <span onclick="speak('Contact')" class="button__text">Contact</span>
+    <div class="button__drow1"></div>
+    <div class="button__drow2"></div>
+    
+
+</nav>
+  </a>
+</div>
+<div class="player">
+    <p>🎵 Mini Music </p>
+<button onclick="stopMusic()">▶️</button>
+    <button onclick="nextMusic()">⏭️</button>
+</div>
+<script>
+
+const songs = [
+        "",
+        "macan.mp3",
+        "MACAp.mp3",
+        "diyorbek.mp3",
+        "diyorbek2.mp3",
+        "hamali.mp3",
+        "toxir.mp3",
+        "SHOXRUX.mp3",
+        "toxir2.mp3",
+        "Sezen.mp3",
+        "navai.mp3",
+        "basta.mp3"
+    ];
+
+    let index = 0;
+    let audio = new Audio(songs[index]);
+
+    function playMusic() {
+        audio.play();
+    }
+
+    function stopMusic() {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+
+    function nextMusic() {
+        index = (index + 1) % songs.length;
+        audio.src = songs[index];
+        audio.play();
+    }
+
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+ 
+</nav>
+<section class="hero">
+  <div class="hero-container">
+    <img src="img.png" alt="Avatar" class="avatar">
+    <div class="loader">
+  <svg
+    id="pegtopone"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 100 100"
+  >
+    <defs>
+      <filter id="shine">
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+      <mask id="mask">
+        <path
+          d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+          fill="white"
+        ></path>
+      </mask>
+      <radialGradient
+        id="gradient-1"
+        cx="50"
+        cy="66"
+        fx="50"
+        fy="66"
+        r="30"
+        gradientTransform="translate(0 35) scale(1 0.5)"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="black" stop-opacity="0.3"></stop>
+        <stop offset="50%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient
+        id="gradient-2"
+        cx="55"
+        cy="20"
+        fx="55"
+        fy="20"
+        r="30"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+        <stop offset="50%" stop-color="white" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient
+        id="gradient-3"
+        cx="85"
+        cy="50"
+        fx="85"
+        fy="50"
+        xlink:href="#gradient-2"
+      ></radialGradient>
+      <radialGradient
+        id="gradient-4"
+        cx="50"
+        cy="58"
+        fx="50"
+        fy="58"
+        r="60"
+        gradientTransform="translate(0 47) scale(1 0.2)"
+        xlink:href="#gradient-3"
+      ></radialGradient>
+      <linearGradient
+        id="gradient-5"
+        x1="50"
+        y1="90"
+        x2="50"
+        y2="10"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"></stop>
+        <stop offset="40%" stop-color="black" stop-opacity="0"></stop>
+      </linearGradient>
+    </defs>
+    <g>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-1)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="none"
+        stroke="white"
+        opacity="0.3"
+        stroke-width="3"
+        filter="url(#shine)"
+        mask="url(#mask)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-2)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-3)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-4)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-5)"
+      ></path>
+    </g>
+  </svg>
+  <svg
+    id="pegtoptwo"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 100 100"
+  >
+    <defs>
+      <filter id="shine">
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+      <mask id="mask">
+        <path
+          d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+          fill="white"
+        ></path>
+      </mask>
+      <radialGradient
+        id="gradient-1"
+        cx="50"
+        cy="66"
+        fx="50"
+        fy="66"
+        r="30"
+        gradientTransform="translate(0 35) scale(1 0.5)"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="black" stop-opacity="0.3"></stop>
+        <stop offset="50%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient
+        id="gradient-2"
+        cx="55"
+        cy="20"
+        fx="55"
+        fy="20"
+        r="30"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+        <stop offset="50%" stop-color="white" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient
+        id="gradient-3"
+        cx="85"
+        cy="50"
+        fx="85"
+        fy="50"
+        xlink:href="#gradient-2"
+      ></radialGradient>
+      <radialGradient
+        id="gradient-4"
+        cx="50"
+        cy="58"
+        fx="50"
+        fy="58"
+        r="60"
+        gradientTransform="translate(0 47) scale(1 0.2)"
+        xlink:href="#gradient-3"
+      ></radialGradient>
+      <linearGradient
+        id="gradient-5"
+        x1="50"
+        y1="90"
+        x2="50"
+        y2="10"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"></stop>
+        <stop offset="40%" stop-color="black" stop-opacity="0"></stop>
+      </linearGradient>
+    </defs>
+    <g>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-1)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="none"
+        stroke="white"
+        opacity="0.3"
+        stroke-width="3"
+        filter="url(#shine)"
+        mask="url(#mask)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-2)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-3)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-4)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-5)"
+      ></path>
+    </g>
+  </svg>
+  <svg
+    id="pegtopthree"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 100 100"
+  >
+    <defs>
+      <filter id="shine">
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+      <mask id="mask">
+        <path
+          d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+          fill="white"
+        ></path>
+      </mask>
+      <radialGradient
+        id="gradient-1"
+        cx="50"
+        cy="66"
+        fx="50"
+        fy="66"
+        r="30"
+        gradientTransform="translate(0 35) scale(1 0.5)"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="black" stop-opacity="0.3"></stop>
+        <stop offset="50%" stop-color="black" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient
+        id="gradient-2"
+        cx="55"
+        cy="20"
+        fx="55"
+        fy="20"
+        r="30"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+        <stop offset="50%" stop-color="white" stop-opacity="0.1"></stop>
+        <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient
+        id="gradient-3"
+        cx="85"
+        cy="50"
+        fx="85"
+        fy="50"
+        xlink:href="#gradient-2"
+      ></radialGradient>
+      <radialGradient
+        id="gradient-4"
+        cx="50"
+        cy="58"
+        fx="50"
+        fy="58"
+        r="60"
+        gradientTransform="translate(0 47) scale(1 0.2)"
+        xlink:href="#gradient-3"
+      ></radialGradient>
+      <linearGradient
+        id="gradient-5"
+        x1="50"
+        y1="90"
+        x2="50"
+        y2="10"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stop-color="black" stop-opacity="0.2"></stop>
+        <stop offset="40%" stop-color="black" stop-opacity="0"></stop>
+      </linearGradient>
+    </defs>
+    <g>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-1)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="none"
+        stroke="white"
+        opacity="0.3"
+        stroke-width="3"
+        filter="url(#shine)"
+        mask="url(#mask)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-2)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-3)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-4)"
+      ></path>
+      <path
+        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+        fill="url(#gradient-5)"
+      ></path>
+    </g>
+  </svg>
+</div>
+
+    <div class="hero-text">
+      <h1>Diyorbek.M</h1>
+      <p>Frontend Developer | Web Designer |</p>
+      <a href="https://t.me/suv_buyi_dachaBot">
+        
+        <button onclick="speak('Telegram Bot')">
+  Telegram Bot
+  <div class="star-1">
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 784.11 815.53"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          class="fil0"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-2">
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 784.11 815.53"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          class="fil0"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-3">
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 784.11 815.53"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          class="fil0"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-4">
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 784.11 815.53"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          class="fil0"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-5">
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 784.11 815.53"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          class="fil0"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="star-6">
+    <svg
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 784.11 815.53"
+      style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+      version="1.1"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs></defs>
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+        <path
+          d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          class="fil0"
+        ></path>
+      </g>
+    </svg>
+  </div>
+</button>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Example Team Section -->
+<section>
+  <h2>JAMOA</h2>
+  <div class="flex-container">
+   <section id="card1" class="card">
+  <svg
+    viewBox="0 0 16 16"
+    class="bi bi-image-fill"
+    fill="currentColor"
+    height="40"
+    width="40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+   <img src="abdulloh.png" 
+   alt=""> 
+  </svg>
+  <div class="card__content">
+    <p class="card__title"></p>
+    <p class="card__description">
+      BU MENING DUSTIM ABDULLOH. BIZ ABDULLOH BILAN BIRGALIKDA JUDAHAM KO'P LOYIHALAR QILGANMIZ 
+    </p>
+  </div>
+</section>
+
+   
+</section>
+
+<footer>
+  <p>&copy; 2025 Diyorbek.M Portfolio. </p>
+  <p>
+    <a href="https://t.me/DIYORBEK_M_1" target="_blank">Telegram</a> |
+    <a href="https://www.instagram.com/mortonov_diyorbek?igsh=ajVvcjVxbmpuYmF6">instagram</a> |
+     <a href="mailto:dmortonov@gmail.com">Email</a> |
+    <a href="phone.html">Phone</a>
+  </p>
+</footer>
+
+</body>
+</html>
